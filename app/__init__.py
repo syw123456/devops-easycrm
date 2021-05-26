@@ -6,7 +6,6 @@ from app.database import db
 from app.core import core as core_blueprint
 from app.auth import auth as auth_blueprint
 
-
 def create_app(config=BaseConfig):
     app = Flask(__name__)
     app.config.from_object(config)
