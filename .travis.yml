@@ -5,3 +5,15 @@ python:
 install:
   - pip install -r requirements.txt
 script: nosetests -v
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2" ### AWS region of your choice
+  app: "easycrm" ### Your EB App name
+  env: "Easycrm-env" ### Your EB App environment name
+  bucket_name: "elasticbeanstalk-us-east-2-536501238579" ### S3 bucket name
+  bucket_path: "devopseasycrm" ### S3 folder name under S3 bucket above
+  on:
+    branch: main
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
